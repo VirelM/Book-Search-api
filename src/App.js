@@ -1,35 +1,49 @@
 import React from 'react';
-import Header from './componets/Header'
-import Search from './componets/SearchBar'
-import List from './componets/List'
+import './App.css';
+import Search from './Search'
+import BookList from './BooksList';
 
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      books:[]
+    };
+  }
+  componentDidMount(){
+    fetch('https://www.googleapis.com/books/v1/volumes?q=Winter%20of%20the%20Ice%20Wizard&maxResults=3')
+      .then(res=> res.json())
+      .then(data=> {
+        let justItems = data.items;
+        console.log(justItems);
+        this.setState({books:justItems})
+        console.log(this.state.books[0].saleInfo);
+      })
+  }
   
-  state = {
-    data: null
+  formsubmit = (word)=>{
+    console.log(word)
   }
 
-  updateState = (newData) => {
-    this.setState({
-      data: newData
-    })
-  }
-
-
-  render() {
-  return (
-    <main className='App'>
-      <Header/>
-      <Search 
-        state={this.state}
-        onSearch={this.updateState}
-      />
-      <List data={this.state.data}/>
-    </main>
-  )
+  // updateState = (newData) => {
+  //   this.setState({
+  //     data: newData
+  //   })
+  // }
+  
+  render(){
+    
+    return (
+      <div className="App">
+        <header>
+          <h1>Google Bookmark Search</h1>
+        </header>
+        <Search submit={this.formsubmit} />
+        <BookList books={this.state.books}/>
+      </div>
+    );
   }
 }
 
 export default App;
-
