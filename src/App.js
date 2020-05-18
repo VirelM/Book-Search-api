@@ -22,8 +22,21 @@ class App extends React.Component {
       })
   }
   
-  formsubmit = (word)=>{
-    console.log(word)
+  //'https://www.googleapis.com/books/v1/volumes?q=Winter%20of%20the%20Ice%20Wizard&filter=ebooks&maxResults=3&printType=all' \
+
+
+  formsubmit = (sParam, printType, bookType)=>{
+    console.log(sParam);
+    console.log(printType);
+    console.log(bookType);
+    let base = 'https://www.googleapis.com/books/v1/volumes?q=';
+    let compare = `${base}${sParam}&${bookType}&maxResults=3&${printType}`;
+    console.log(compare);
+    fetch(`${base}${sParam}&filter=${bookType}&maxResults=3&printType=${printType}`)
+    .then(res=> res.json())
+    .then(data=> {
+      console.log(data)
+    })
   }
 
   // updateState = (newData) => {
@@ -31,7 +44,7 @@ class App extends React.Component {
   //     data: newData
   //   })
   // }
-  
+
   render(){
     
     return (

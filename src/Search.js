@@ -5,9 +5,10 @@ export default class Search extends React.Component{
     handleSubmit= (event) =>{
         event.preventDefault();
         let sParam = $('#sParam').val()
-        let sParamf = sParam.split(" ").join('%');
-        // sParam.join('%')
-        this.props.submit(sParamf);
+        let sParamf = sParam.split(" ").join('%20');
+        let printOption = $('#PrintType').val();
+        let bookOption = $('#BookType').val();
+        this.props.submit(sParamf, printOption, bookOption);
     }
     render(){
         return(
