@@ -11,16 +11,16 @@ class App extends React.Component {
       books:[]
     };
   }
-  componentDidMount(){
-    fetch('https://www.googleapis.com/books/v1/volumes?q=Winter%20of%20the%20Ice%20Wizard&maxResults=3')
-      .then(res=> res.json())
-      .then(data=> {
-        let justItems = data.items;
-        console.log(justItems);
-        this.setState({books:justItems})
-        console.log(this.state.books[0].saleInfo);
-      })
-  }
+  // componentDidMount(){
+  //   fetch('https://www.googleapis.com/books/v1/volumes?q=Winter%20of%20the%20Ice%20Wizard&maxResults=3')
+  //     .then(res=> res.json())
+  //     .then(data=> {
+  //       let justItems = data.items;
+  //       console.log(justItems);
+  //       this.setState({books:justItems})
+  //       console.log(this.state.books);
+  //     })
+  // }
   
   //'https://www.googleapis.com/books/v1/volumes?q=Winter%20of%20the%20Ice%20Wizard&filter=ebooks&maxResults=3&printType=all' \
 
@@ -29,21 +29,50 @@ class App extends React.Component {
     console.log(sParam);
     console.log(printType);
     console.log(bookType);
-    let base = 'https://www.googleapis.com/books/v1/volumes?q=';
-    let compare = `${base}${sParam}&${bookType}&maxResults=3&${printType}`;
-    console.log(compare);
-    fetch(`${base}${sParam}&filter=${bookType}&maxResults=3&printType=${printType}`)
+    let FbookType = '';
+    if(bookType==='None'){
+      FbookType += ''
+    }
+    else {
+      FbookType += `&filter=${bookType}`;
+    }
+    let FprintType = ''
+    if(printType==='None'){
+      FprintType += ''
+    }
+    else{
+      FprintType += `&printType=${printType}`
+    }
+    console.log(FprintType);
+    console.log(FbookType);
+    let url = `https://www.googleapis.com/books/v1/volumes?q=${sParam}${FbookType}&maxResults=20${FprintType}`;
+    console.log(url);
+    fetch(url)
     .then(res=> res.json())
     .then(data=> {
-      console.log(data)
+      console.log(data);
+      this.updateState(data)
     })
   }
 
-  // updateState = (newData) => {
-  //   this.setState({
-  //     data: newData
-  //   })
-  // }
+  updateState = (data) => {
+    let newbooks = [];
+    data.items.forEach((book) => {
+      let stateBook = {
+        id: book.id,
+        title: book.volumeInfo.title,
+        imageLinks: book.volumeInfo.imageLinks,
+        authors: book.volumeInfo.authors,
+        listPrice: book.saleInfo.listPrice,
+        description: book.volumeInfo.description
+      }
+      newbooks.push(stateBook)
+    });
+    console.log(newbooks);
+    this.setState({
+      books: newbooks
+    })
+  }
 
   render(){
     
