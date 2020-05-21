@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/bookmark-api-solo/static/css/main.769aef0a.chunk.css",
+    "main.js": "/bookmark-api-solo/static/js/main.7ce3cce5.chunk.js",
+    "main.js.map": "/bookmark-api-solo/static/js/main.7ce3cce5.chunk.js.map",
+    "runtime-main.js": "/bookmark-api-solo/static/js/runtime-main.8231960a.js",
+    "runtime-main.js.map": "/bookmark-api-solo/static/js/runtime-main.8231960a.js.map",
+    "static/js/2.2202d825.chunk.js": "/bookmark-api-solo/static/js/2.2202d825.chunk.js",
+    "static/js/2.2202d825.chunk.js.map": "/bookmark-api-solo/static/js/2.2202d825.chunk.js.map",
+    "index.html": "/bookmark-api-solo/index.html",
+    "precache-manifest.6b7732122be3f0e81838f81097216123.js": "/bookmark-api-solo/precache-manifest.6b7732122be3f0e81838f81097216123.js",
+    "service-worker.js": "/bookmark-api-solo/service-worker.js",
+    "static/css/main.769aef0a.chunk.css.map": "/bookmark-api-solo/static/css/main.769aef0a.chunk.css.map",
+    "static/js/2.2202d825.chunk.js.LICENSE.txt": "/bookmark-api-solo/static/js/2.2202d825.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8231960a.js",
+    "static/js/2.2202d825.chunk.js",
+    "static/css/main.769aef0a.chunk.css",
+    "static/js/main.7ce3cce5.chunk.js"
+  ]
+}
