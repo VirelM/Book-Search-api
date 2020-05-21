@@ -13,9 +13,11 @@ export default class Search extends React.Component{
     render(){
         return(
             <form>
-                <label htmlFor="searchInput">Search</label>
-                <input id="sParam" type="text" placeholder="herny" ></input>
-                <button type="submit" onClick={this.handleSubmit}> Search</button><br></br>
+                <div>
+                    <label htmlFor="searchInput">Search</label>
+                    <input id="sParam" type="text" placeholder="herny" ></input>
+                    <button type="submit" onClick={this.handleSubmit}> Search</button><br></br>
+                </div>
                 <label htmlFor="PrintType">Print Type:</label>
                 <select id="PrintType" name="PrintType" onChange={this.handleSubmit}>
                     <option value="None">No Filter</option>

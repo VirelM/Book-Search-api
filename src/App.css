@@ -11,6 +11,20 @@ ul{
   list-style-type: none;
 }
 
+header h1{
+  color: white;
+  background-color: black;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+form div{
+  background-color: rgb(93, 97, 97);
+}
+form{
+  background-color: rgb(173, 171, 171);
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
