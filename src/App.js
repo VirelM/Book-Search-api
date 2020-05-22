@@ -11,19 +11,7 @@ class App extends React.Component {
       books:[]
     };
   }
-  // componentDidMount(){
-  //   fetch('https://www.googleapis.com/books/v1/volumes?q=Winter%20of%20the%20Ice%20Wizard&maxResults=3')
-  //     .then(res=> res.json())
-  //     .then(data=> {
-  //       let justItems = data.items;
-  //       console.log(justItems);
-  //       this.setState({books:justItems})
-  //       console.log(this.state.books);
-  //     })
-  // }
   
-  //'https://www.googleapis.com/books/v1/volumes?q=Winter%20of%20the%20Ice%20Wizard&filter=ebooks&maxResults=3&printType=all' \
-
 
   formsubmit = (sParam, printType, bookType)=>{
     console.log(sParam);

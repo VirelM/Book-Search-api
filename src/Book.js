@@ -6,7 +6,12 @@ import './App.css';
 
 export default class Book extends React.Component{
     render(){
-        let imgAlt = `${this.props.title} thumbnail`
+        let imgAlt = `${this.props.title} thumbnail`;
+        let priceprice = '';
+        if (this.props.price){
+            priceprice = this.props.price.amount;
+        }
+        
         return(
             <li>
                 <h2>{this.props.title}</h2>
@@ -14,7 +19,7 @@ export default class Book extends React.Component{
                     <img src={this.props.imageLinks.thumbnail} alt={imgAlt} />
                 </div>
                 <p>{this.props.author}</p>
-                <p>{this.props.price}</p>
+                <p>{priceprice}</p>
                 <p>{this.props.description}</p>
             </li>
         )
